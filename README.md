@@ -26,11 +26,10 @@ docker container stop keycloak-local
 
 ### Live environment
 
-1. For a deployment of keycloak with a pre-filled 'ThePugsDemoRealm' Realm and a 'the-pugs-demo-app' Client, run below command :
+1. For a deployment of keycloak with a pre-filled 'ThePugsDemoRealm' Realm and a 'the-pugs-demo-app' Client, run below command with the file `realm-export.json` in the same folder :
 ```shell
 docker container run --name keycloak-live --rm --publish 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=p4ssw0rd -e DB_VENDOR=H2 -e KEYCLOAK_IMPORT=/tmp/realm-export.json -v $(pwd)/realm-export.json:/tmp/realm-export.json jboss/keycloak
 ```
-The file `realm-export.json` needs to be in the current folder when running the command
 2. To stop keycloak, run below command :
 ```shell
 docker container stop keycloak-live
